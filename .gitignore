@@ -108,7 +108,6 @@ media/
 *.pid
 *.pem
 
-*.sqlite3
 
 # Ignore Django Migrations in Development if you are working on team
 
