@@ -33,7 +33,7 @@ DEBUG = os.environ.get('DEBUG') == True
 
 ALLOWED_HOSTS = ['https://blogdevtech.herokuapp.com/']
 
-
+#
 # Application definition
 
 INSTALLED_APPS = [
