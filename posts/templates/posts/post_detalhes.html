@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load crispy_forms_tags %}
+
 
 {% block titulo %}{{ post.titulo_post|title }}{% endblock %}
 
@@ -11,7 +13,7 @@
         <div class="col-xl"></div>
         <div class="col-xl-8 text-center">
             <h2>{{ post.titulo_post}}</h2>
-            <h5>{{ post.excerto_post}}</h5>
+            <h5 style="font-family:arial;">{{ post.excerto_post}}</h5>
             <p class="text-muted mt-4">
                 <small>
                     {{post.autor_post}} | {{post.data_post}} | {{post.categoria_post}}
@@ -62,17 +64,15 @@
             <h2 class="my-3">Deixe um comentário</h2>
 
             <form method="POST" action="#envia_comentario">
-                <table class="table">
                     {% csrf_token %}
-                    {{form}}
-
-                    <tr>
-                        <td colspan="2"> 
-                            {% include 'parciais/_messages.html'%}
-                            <input id="envia_comentario" type="submit" class="btn btn-primary" value="Enviar">
-                        </td>
-                    </tr>
-                </table>
+                    {% for visible_field in form.visible_fields %}
+                        {{visible_field| as_crispy_field}}
+                    {% endfor%}
+                    <div class="g-recaptcha" data-sitekey="6LdUOukZAAAAALnmT2i6f7EI-KXP5QyaqrxcMT9f"></div>
+                    <br/>
+                    {% include 'parciais/_messages.html'%}
+                    <input id="envia_comentario" type="submit" class="btn btn-primary" value="Enviar">
+                  
             </form>
 
 

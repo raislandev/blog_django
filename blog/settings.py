@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -143,10 +144,18 @@ MESSAGE_TAGS = {
 INSTALLED_APPS += ('django_summernote', )
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+
+SECURE_PROXY_SSL_HEADER = None
+SECURE_SSL_REDIRECT = None
+SESSION_COOKIE_SECURE = None
+CSRF_COOKIE_SECURE = None
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 try:
     from .local_settings import *
